@@ -9,8 +9,9 @@ public class App {
         Double qtt_sac;
         Double qtt_dep;
         Double qtt_trans;
-        boolean exit=false;
+        boolean exit = false;
         int Esc;
+        boolean preen = false;
         
         while (exit==false){
             Esc = Integer.parseInt(JOptionPane.showInputDialog(null,"Escolha uma opção:\n1-Preencher os dados\n2-Consultar o saldo\n3-Sacar\n4-Depositar\n5-Transferir\n6-Ver o status da conta\n7-Sair do programa"));
@@ -22,37 +23,58 @@ public class App {
                     c1.Conta = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite sua Conta:"));
                     c1.Saldo = Double.parseDouble(JOptionPane.showInputDialog(null, "Digite seu Saldo:"));
                     c1.Nome = JOptionPane.showInputDialog(null, "Digite seu nome:");
+                    preen = true;
                     break;
 
                 //Saldo
                 case 2:
-                    c1.consultSaldo();
+                    if(preen == false){
+                        JOptionPane.showMessageDialog(null,"Não houve preenchimento dos dados nescessários");
+                    } else {
+                        c1.consultSaldo();
+                    }
                     break;
             
                 //Sacar
                 case 3:
-                    qtt_sac = Double.parseDouble(JOptionPane.showInputDialog(null, "Quanto queres sacar?"));
-                    c1.sacar(qtt_sac);
+                    if(preen == false){
+                        JOptionPane.showMessageDialog(null,"Não houve preenchimento dos dados nescessários");
+                    } else {
+                        qtt_sac = Double.parseDouble(JOptionPane.showInputDialog(null, "Quanto queres sacar?"));
+                        c1.sacar(qtt_sac);
+                    }
                     break;
             
                 //Depositar
                 case 4:
-                    qtt_dep = Double.parseDouble(JOptionPane.showInputDialog(null, "Quanto queres depositar?"));
-                    c1.deposit(qtt_dep);
+                    if(preen == false){
+                        JOptionPane.showMessageDialog(null,"Não houve preenchimento dos dados nescessários");
+                    } else {
+                        qtt_dep = Double.parseDouble(JOptionPane.showInputDialog(null, "Quanto queres depositar?"));
+                        c1.deposit(qtt_dep);
+                    }
                     break;
             
                 //Tranferir
                 case 5:
-                    c2.Nome = JOptionPane.showInputDialog(null, "Digite o nome para quem vais transferir para quem vais transferir:");
-                    c2.Agencia = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite a Agência para quem vais transferir:"));
-                    c2.Conta = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite a Conta para quem vais transferir:"));
-                    qtt_trans = Double.parseDouble(JOptionPane.showInputDialog(null, "Digite quanto será tranferido:"));
-                    c1.transfer(qtt_trans, c2);
+                    if(preen == false){
+                        JOptionPane.showMessageDialog(null,"Não houve preenchimento dos dados nescessários");
+                    } else {
+                        c2.Nome = JOptionPane.showInputDialog(null, "Digite o nome para quem vais transferir para quem vais transferir:");
+                        c2.Agencia = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite a Agência para quem vais transferir:"));
+                        c2.Conta = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite a Conta para quem vais transferir:"));
+                        qtt_trans = Double.parseDouble(JOptionPane.showInputDialog(null, "Digite quanto será tranferido:"));
+                        c1.transfer(qtt_trans, c2);
+                    }
                     break;
             
                 //Status
                 case 6:
-                    c1.status();
+                    if(preen == false){
+                        JOptionPane.showMessageDialog(null,"Não houve preenchimento dos dados nescessários");
+                    } else {
+                        c1.status();
+                    }
                     break;
 
                 //Sair
