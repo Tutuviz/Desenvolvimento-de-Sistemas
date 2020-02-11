@@ -36,16 +36,16 @@ public class Cliente {
     }
 
     public void Maioridade(){
-        if (Idade < 18) {
-            JOptionPane.showMessageDialog(null, "Ele é menor de idade");
+        if (this.getIdade() < 18) {
+            JOptionPane.showMessageDialog(null, "És menor de idade");
         } else{
-            JOptionPane.showMessageDialog(null, "Ele é maior de idade");
+            JOptionPane.showMessageDialog(null, "És maior de idade");
         }
     }
 
     public void Desconto(){
         double desc;
-        if (Idade<20){
+        if (this.getIdade()<20){
             JOptionPane.showMessageDialog(null, "Sem desconto");
         } else {
             desc = Compra*0.9;
