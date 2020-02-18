@@ -13,14 +13,15 @@ public class Fatura {
     public void ExibirValorFatura(){
         double value;
         value = this.getQtd()*this.getPrice();
-        Desconto(value);
+        value = Desconto(value);
         JOptionPane.showMessageDialog(null, "R$"+value);
     }
 
-    public void Desconto(double value){
+    public double Desconto(double value){
         if (value > 200){
             value = value*0.9;
         }
+        return value;
     }
 
     public int getNum() {
