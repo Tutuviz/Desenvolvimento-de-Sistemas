@@ -8,6 +8,7 @@ public class Humano {
     private double height;
     private double peso;
     private int age;
+    private int stamina;
     private boolean disease;
     private boolean alive;
     private boolean oculos;
@@ -32,8 +33,29 @@ public class Humano {
         } else {
             this.setDisease(false);
         }
+        this.setExist(true);
     }
 
+    public void status(){
+        JOptionPane.showMessageDialog(null, "O nome é: "+this.getName()+"\nA idade é: "+this.getAge()+"\nO sexo é: "+this.getSex()+"\nA altura é: "+this.getHeight()+"\nO peso é: "+this.getPeso()+"\nUsa oculos? "+this.isOculos()+"\nTem doença?"+this.isDisease());
+    }
+
+    public void fatigue(){
+        if (this.getStamina()<=20 && this.getStamina()>0) {
+            JOptionPane.showMessageDialog(null, "Vc se sente muito cansado e deveria ir descansar");
+        }
+        if (this.getStamina()<=0){
+            if (this.isDisease()==true) {
+                JOptionPane.showMessageDialog(null, "Após tantas atividades vc ficou exausto e morreu");
+                this.setAlive(false);
+            } else {
+                JOptionPane.showMessageDialog(null, "Após tantas atividades vc ficou doente, deveria ir descansar");
+                this.setDisease(true);
+            }
+        }
+    }
+
+    // Get and Set
     public String getName() {
         return name;
     }
@@ -105,9 +127,20 @@ public class Humano {
     public void setExist(boolean exist) {
         this.exist = exist;
     }
-
-    public Humano() {
-        this.alive = true;
+    
+    public int getStamina() {
+        return stamina;
     }
+
+    public void setStamina(int stamina) {
+        this.stamina = stamina;
+    }
+
+    // Constructor
+    public Humano() {
+        this.setStamina(100);
+        this.setAlive(true);
+    }
+
 
 }
