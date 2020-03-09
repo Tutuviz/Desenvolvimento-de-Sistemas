@@ -48,7 +48,7 @@ public class Humano {
     }
 
     public void status(){
-        JOptionPane.showMessageDialog(null, "O nome é: "+this.getName()+"\nA idade é: "+this.getAge()+"\nO sexo é: "+this.getSex()+"\nA altura é: "+this.getHeight()+"\nO peso é: "+this.getPeso()+"\nUsa oculos? "+this.isOculos()+"\nTem doença?"+this.isDisease());
+        JOptionPane.showMessageDialog(null, "O nome é: "+this.getName()+"\nA idade é: "+this.getAge()+"\nO sexo é: "+this.getSex()+"\nA altura é: "+this.getHeight()+"\nO peso é: "+this.getPeso()+"\nUsa oculos? "+this.isOculos()+"\nTem doença? "+this.isDisease());
     }
 
     public void delete(){
