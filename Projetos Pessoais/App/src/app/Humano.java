@@ -109,7 +109,7 @@ public class Humano {
         setStamina(getStamina()-20);
     }
     public void comer(){
-        JOptionPane.showMessageDialog(null, this.getName()+" comeu bem e está cheio agora");
+        JOptionPane.showMessageDialog(null, this.getName()+" comeu bem e se satisfez");
         setStamina(getStamina()-5);
     }
     public void coitar(){
