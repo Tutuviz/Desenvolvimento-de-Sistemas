@@ -49,6 +49,9 @@ public class Humano {
 
     public void status(){
         JOptionPane.showMessageDialog(null, "O nome é: "+this.getName()+"\nA idade é: "+this.getAge()+"\nO sexo é: "+this.getSex()+"\nA altura é: "+this.getHeight()+"\nO peso é: "+this.getPeso()+"\nUsa oculos? "+this.isOculos()+"\nTem doença? "+this.isDisease());
+        if (!this.isAlive()) {
+            JOptionPane.showMessageDialog(null, "Esse humano está morto");
+        }
     }
 
     public void delete(){
@@ -94,12 +97,10 @@ public class Humano {
             
         }
     }
-
     public void estudar(){
         JOptionPane.showMessageDialog(null, this.getName()+" estudou arduamente e se sente mais inteligente porém desgastado");
         setStamina(getStamina()-10);
     }
-
     public void trabalhar(){
         JOptionPane.showMessageDialog(null, this.getName()+" trabalhou muito e agora deu uma pausa");
         setStamina(getStamina()-25);
@@ -109,7 +110,7 @@ public class Humano {
         setStamina(getStamina()-20);
     }
     public void comer(){
-        JOptionPane.showMessageDialog(null, this.getName()+" comeu bem e se satisfez");
+        JOptionPane.showMessageDialog(null, this.getName()+" comeu bem e está cheio agora");
         setStamina(getStamina()-5);
     }
     public void coitar(){
@@ -211,7 +212,6 @@ public class Humano {
         this.setStamina(100);
         this.setExist(false);
         this.setName("Nenhum");
+        this.setAlive(true);
     }
-
-
 }
