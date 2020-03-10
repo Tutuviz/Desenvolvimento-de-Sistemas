@@ -60,40 +60,45 @@ public class App {
                 case 4:
                     if (humanSelected(escHuman, h1, h2, h3, h4, h5, Unselected).isExist()){
                         while (!exitAtv) {
-                            escAtv = Integer.parseInt(JOptionPane.showInputDialog("~~~Atividades~~~\nEscolha uma opção:\n1 - Dormir \n2 - Estudar \n3 - Trabalhar \n4 - Jogar \n5 - Comer \n6 - Fazer Oba-Oba \n7 - Passear \n8 - Exercitar-se \n9 - Voltar para a Tela Principal")); 
-                            switch (escAtv) {
-                                case 1:
-                                    humanSelected(escHuman, h1, h2, h3, h4, h5, Unselected).dormir();
-                                    break;
-                                case 2:
-                                    humanSelected(escHuman, h1, h2, h3, h4, h5, Unselected).estudar();
-                                    break;
-                                case 3:
-                                    humanSelected(escHuman, h1, h2, h3, h4, h5, Unselected).trabalhar();
-                                    break;
-                                case 4:
-                                    humanSelected(escHuman, h1, h2, h3, h4, h5, Unselected).jogar();
-                                    break;
-                                case 5:
-                                    humanSelected(escHuman, h1, h2, h3, h4, h5, Unselected).comer();
-                                    break;
-                                case 6:
-                                    humanSelected(escHuman, h1, h2, h3, h4, h5, Unselected).coitar();
-                                    break;
-                                case 7:
-                                    humanSelected(escHuman, h1, h2, h3, h4, h5, Unselected).passear();
-                                    break;
-                                case 8:
-                                    humanSelected(escHuman, h1, h2, h3, h4, h5, Unselected).exercitar();
-                                    break;
-                                case 9:
-                                    exitAtv=true;
-                                    break;
-                                default:
-                                    JOptionPane.showMessageDialog(null, "Opção Inválida");
-                                    break;
+                            if (humanSelected(escHuman, h1, h2, h3, h4, h5, Unselected).isAlive()) {
+                                escAtv = Integer.parseInt(JOptionPane.showInputDialog("~~~Atividades~~~\nEscolha uma opção:\n1 - Dormir \n2 - Estudar \n3 - Trabalhar \n4 - Jogar \n5 - Comer \n6 - Fazer Oba-Oba \n7 - Passear \n8 - Exercitar-se \n9 - Voltar para a Tela Principal")); 
+                                switch (escAtv) {
+                                    case 1:
+                                        humanSelected(escHuman, h1, h2, h3, h4, h5, Unselected).dormir();
+                                        break;
+                                    case 2:
+                                        humanSelected(escHuman, h1, h2, h3, h4, h5, Unselected).estudar();
+                                        break;
+                                    case 3:
+                                        humanSelected(escHuman, h1, h2, h3, h4, h5, Unselected).trabalhar();
+                                        break;
+                                    case 4:
+                                        humanSelected(escHuman, h1, h2, h3, h4, h5, Unselected).jogar();
+                                        break;
+                                    case 5:
+                                        humanSelected(escHuman, h1, h2, h3, h4, h5, Unselected).comer();
+                                        break;
+                                    case 6:
+                                        humanSelected(escHuman, h1, h2, h3, h4, h5, Unselected).coitar();
+                                        break;
+                                    case 7:
+                                        humanSelected(escHuman, h1, h2, h3, h4, h5, Unselected).passear();
+                                        break;
+                                    case 8:
+                                        humanSelected(escHuman, h1, h2, h3, h4, h5, Unselected).exercitar();
+                                        break;
+                                    case 9:
+                                        exitAtv=true;
+                                        break;
+                                    default:
+                                        JOptionPane.showMessageDialog(null, "Opção Inválida");
+                                        break;
+                                }
+                                humanSelected(escHuman, h1, h2, h3, h4, h5, Unselected).fatigue();
+                            } else {
+                                JOptionPane.showMessageDialog(null, "Seu humano está morto");
+                                exitAtv=true;
                             }
-                            humanSelected(escHuman, h1, h2, h3, h4, h5, Unselected).fatigue();
                         }
                     } else {
                         JOptionPane.showMessageDialog(null, "Selecione um humano primeiramente");
